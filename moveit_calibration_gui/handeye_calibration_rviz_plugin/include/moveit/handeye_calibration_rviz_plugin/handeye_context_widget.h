@@ -55,14 +55,14 @@
 #include <tf2_ros/transform_listener.h>
 #include <rviz_visual_tools/tf_visual_tools.hpp>
 #include <rviz_visual_tools/rviz_visual_tools.hpp>
-#include <image_geometry/pinhole_camera_model.hpp>
+#include <image_geometry/pinhole_camera_model.h>
 #include <moveit_visual_tools/moveit_visual_tools.h>
 #include <moveit/handeye_calibration_solver/handeye_solver_base.h>
 #include <moveit/handeye_calibration_rviz_plugin/handeye_calibration_display.h>
-#include <moveit/common_planning_interface_objects/common_objects.hpp>
-#include <moveit/planning_scene_monitor/planning_scene_monitor.hpp>
+#include <moveit/common_planning_interface_objects/common_objects.h>
+#include <moveit/planning_scene_monitor/planning_scene_monitor.h>
 #include <moveit/planning_scene_rviz_plugin/background_processing.hpp>
-#include <moveit/utils/rclcpp_utils.hpp>
+#include <moveit/utils/rclcpp_utils.h>
 
 #ifndef Q_MOC_RUN
 #include <rclcpp/rclcpp.hpp>
@@ -92,15 +92,11 @@ class TFFrameNameComboBox : public QComboBox
 public:
   TFFrameNameComboBox(rviz_common::DisplayContext* context, rclcpp::Node::SharedPtr& node,
                       FRAME_SOURCE source = ROBOT_FRAME, QWidget* parent = 0)
-    : QComboBox(parent),frame_source_(source), node_(node), context_(context)
-  {
-    robot_model_loader_.reset(new robot_model_loader::RobotModelLoader(node_, "robot_description"));
-  }
+    : QComboBox(parent), frame_source_(source), node_(node), context_(context)
+  { robot_model_loader_.reset(new robot_model_loader::RobotModelLoader(node_, "robot_description")); }
 
   ~TFFrameNameComboBox()
-  {
-    robot_model_loader_.reset();
-  }
+  { robot_model_loader_.reset(); }
 
   bool hasFrame(const std::string& frame_name);
 

@@ -127,7 +127,7 @@ public:
   const std::size_t CAMERA_MATRIX_WIDTH = 3;
   const std::size_t CAMERA_MATRIX_HEIGHT = 3;
   const std::map<std::string, std::size_t> CAMERA_DISTORTION_MODELS_VECTOR_DIMENSIONS = { { "none", 0 },
-                                                                                          { "plumb_bob", 5 },
+                                                                                          { "plumb_bob", 8 },
                                                                                           { "rational_polynomial", 8 } };
 
   virtual ~HandEyeTargetBase() = default;
